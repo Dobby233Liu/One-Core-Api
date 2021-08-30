@@ -72,7 +72,7 @@ endif()
 # Bison and Flex support
 # include(sdk/cmake/bison-flex.cmake)
 
-if(0)#NOT CMAKE_CROSSCOMPILING)
+if(NOT CMAKE_CROSSCOMPILING)
     set(TOOLS_FOLDER ${CMAKE_CURRENT_BINARY_DIR})
     add_definitions(-DTARGET_${ARCH})
 
@@ -222,9 +222,6 @@ else()
         ${REACTOS_BINARY_DIR}/sdk/include/ddk
         ${REACTOS_BINARY_DIR}/sdk/include/reactos
         ${REACTOS_BINARY_DIR}/sdk/include/reactos/mc
-		#Please, include these directories when integrate wrappers to reactos environment
-		wrappers/sdk/include/wsdk
-        ${REACTOS_BINARY_DIR}/wrappers/sdk/include/wsdk
         sdk/include/crt
         sdk/include/ddk
         sdk/include/ndk
@@ -273,11 +270,6 @@ else()
     add_subdirectory(subsystems)
     add_subdirectory(sdk/tools/wpp)
     add_subdirectory(win32ss)
-	
-	#Please, include these directories when integrate wrappers to reactos environment
-    add_subdirectory(wrappers)
-    add_subdirectory(wrappers/sdk/include/wsdk)
-    add_subdirectory(wrappers/sdk/lib)
 
     # Create the registry hives
     create_registry_hives()
@@ -289,3 +281,13 @@ else()
 
     add_dependency_footer()
 endif()
+
+#Please, include these directories when integrate wrappers to reactos environment
+add_subdirectory(wrappers)
+add_subdirectory(wrappers/sdk/include/wsdk)
+add_subdirectory(wrappers/sdk/lib)
+include_directories(
+    #Please, include these directories when integrate wrappers to reactos environment
+    wrappers/sdk/include/wsdk
+    ${REACTOS_BINARY_DIR}/wrappers/sdk/include/wsdk
+)
