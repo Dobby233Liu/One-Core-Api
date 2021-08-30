@@ -48,24 +48,9 @@ jobs:
     - name: Install source patches
       run: Copy-Item -Force -Recurse ./src/wrappers/to-synch -Destination ./src/
     - name: Configure
-      run: cmake -S src -B build -G Ninja -DCMAKE_TOOLCHAIN_FILE:FILEPATH=toolchain-msvc.cmake -DARCH:STRING=${{matrix.arch}} -DCMAKE_BUILD_TYPE=${{matrix.config}} -DENABLE_ROSTESTS=1 -DENABLE_ROSAPPS=1
+      run: cmake -S src -B build -G Ninja -DCMAKE_TOOLCHAIN_FILE:FILEPATH=toolchain-msvc.cmake -DARCH:STRING=${{matrix.arch}} -DCMAKE_BUILD_TYPE=${{matrix.config}} -DENABLE_ROSTESTS=0 -DENABLE_ROSAPPS=0
     - name: Build
       run: cmake --build build  -- -k0
-    #- name: Generate ISOs
-    #  run: cmake --build build --target bootcd --target livecd
-    #- name: Upload ISOs
-    #  uses: actions/upload-artifact@v2
-    #  with:
-    #    name: reactos-msvc${{matrix.toolset}}-${{matrix.arch}}-${{matrix.config}}-${{github.sha}}
-    #    path: |
-    #      build/bootcd.iso
-    #      build/livecd.iso
-    #- name: Upload debug symbols
-    #  if: ${{ matrix.config == 'Debug' }}
-    #  uses: actions/upload-artifact@v2
-    #  with:
-    #    name: reactos-syms-msvc${{matrix.toolset}}-${{matrix.arch}}-${{matrix.config}}-${{github.sha}}
-    #    path: build/msvc_pdb
 
   #build-msvc-arm:
   #build-clang-cl:
