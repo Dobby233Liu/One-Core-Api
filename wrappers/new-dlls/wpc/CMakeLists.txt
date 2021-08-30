@@ -5,14 +5,15 @@ add_definitions(-D_WIN32_WINNT=0x600)
 include_directories(${REACTOS_SOURCE_DIR}/include/reactos/wine)
 
 spec2def(wpc.dll wpc.spec)
+add_idl_headers(wpc_classes wpc.idl)
 
 list(APPEND SOURCE
     wpc.c
     ${CMAKE_CURRENT_BINARY_DIR}/wpc_stubs.c
     ${CMAKE_CURRENT_BINARY_DIR}/wpc.def)
-	
+
 add_library(wpc SHARED ${SOURCE} wpc.rc)
-add_dependencies(wpc stdole2)
+add_dependencies(wpc wpc_classes stdole2)
 set_module_type(wpc win32dll)
 target_link_libraries(wpc wine uuid wpc_idlheader)
 add_importlibs(wpc shell32 oleaut32 ole32 user32 advapi32 shlwapi ntdll kernel32 msvcrt)
