@@ -265,10 +265,6 @@ else()
     add_subdirectory(dll)
     add_subdirectory(drivers)
     add_subdirectory(hal)
-    #Please, include these directories when integrate wrappers to reactos environment
-    add_subdirectory(wrappers)
-    add_subdirectory(wrappers/sdk/include/wsdk)
-    add_subdirectory(wrappers/sdk/lib)
     add_subdirectory(sdk/lib)
     add_subdirectory(media)
     add_subdirectory(modules)
@@ -276,6 +272,10 @@ else()
     add_subdirectory(subsystems)
     add_subdirectory(sdk/tools/wpp)
     add_subdirectory(win32ss)
+    #Please, include these directories when integrate wrappers to reactos environment
+    add_subdirectory(wrappers/sdk/include/wsdk)
+    add_subdirectory(wrappers/sdk/lib)
+    add_subdirectory(wrappers)
 
     # Create the registry hives
     create_registry_hives()
