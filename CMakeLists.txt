@@ -73,6 +73,8 @@ endif()
 # include(sdk/cmake/bison-flex.cmake)
 
 if(NOT CMAKE_CROSSCOMPILING)
+    message(WARNING "Confusion ahead")
+
     set(TOOLS_FOLDER ${CMAKE_CURRENT_BINARY_DIR})
     add_definitions(-DTARGET_${ARCH})
 
@@ -97,6 +99,11 @@ if(NOT CMAKE_CROSSCOMPILING)
     endif()
     add_subdirectory(sdk/tools)
     add_subdirectory(sdk/lib)
+    
+    #Please, include these directories when integrate wrappers to reactos environment
+    add_subdirectory(wrappers)
+    add_subdirectory(wrappers/sdk/include/wsdk)
+    add_subdirectory(wrappers/sdk/lib)
 
     set(NATIVE_TARGETS bin2c widl gendib cabman fatten hpp isohybrid mkhive mkisofs obj2bin spec2def geninc mkshelllink utf16le xml2sdb)
     if(NOT MSVC)
@@ -226,7 +233,10 @@ else()
         sdk/include/ddk
         sdk/include/ndk
         sdk/include/reactos
-        sdk/include/reactos/libs)
+        sdk/include/reactos/libs
+        #Please, include these directories when integrate wrappers to reactos environment
+        wrappers/sdk/include/wsdk
+        ${REACTOS_BINARY_DIR}/wrappers/sdk/include/wsdk)
 
     if(ARCH STREQUAL "arm")
         include_directories(${REACTOS_SOURCE_DIR}/sdk/include/reactos/arm)
@@ -270,6 +280,10 @@ else()
     add_subdirectory(subsystems)
     add_subdirectory(sdk/tools/wpp)
     add_subdirectory(win32ss)
+    #Please, include these directories when integrate wrappers to reactos environment
+    add_subdirectory(wrappers)
+    add_subdirectory(wrappers/sdk/include/wsdk)
+    add_subdirectory(wrappers/sdk/lib)
 
     # Create the registry hives
     create_registry_hives()
@@ -281,13 +295,3 @@ else()
 
     add_dependency_footer()
 endif()
-
-#Please, include these directories when integrate wrappers to reactos environment
-add_subdirectory(wrappers)
-add_subdirectory(wrappers/sdk/include/wsdk)
-add_subdirectory(wrappers/sdk/lib)
-include_directories(
-    #Please, include these directories when integrate wrappers to reactos environment
-    wrappers/sdk/include/wsdk
-    ${REACTOS_BINARY_DIR}/wrappers/sdk/include/wsdk
-)
