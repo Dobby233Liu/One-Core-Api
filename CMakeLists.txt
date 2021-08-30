@@ -72,7 +72,7 @@ endif()
 # Bison and Flex support
 # include(sdk/cmake/bison-flex.cmake)
 
-if(NOT CMAKE_CROSSCOMPILING)
+if(0)#NOT CMAKE_CROSSCOMPILING)
     set(TOOLS_FOLDER ${CMAKE_CURRENT_BINARY_DIR})
     add_definitions(-DTARGET_${ARCH})
 
@@ -80,7 +80,7 @@ if(NOT CMAKE_CROSSCOMPILING)
         if(ARCH STREQUAL "i386")
             add_definitions(/D_X86_ /D__i386__ /DWIN32 /D_WINDOWS)
         elseif(ARCH STREQUAL "amd64")
-            add_definitions(-D_AMD64_ -D__x86_64__ /DWIN32 -D_WINDOWS)
+            add_definitions(/D_AMD64_ /D__x86_64__ /DWIN32 /D_WINDOWS)
         endif()
         if(MSVC_VERSION GREATER 1699)
             add_definitions(/D_ALLOW_KEYWORD_MACROS)
