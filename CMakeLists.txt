@@ -73,8 +73,6 @@ endif()
 # include(sdk/cmake/bison-flex.cmake)
 
 if(NOT CMAKE_CROSSCOMPILING)
-    message(WARNING "Confusion ahead...")
-
     set(TOOLS_FOLDER ${CMAKE_CURRENT_BINARY_DIR})
     add_definitions(-DTARGET_${ARCH})
 
@@ -107,11 +105,6 @@ if(NOT CMAKE_CROSSCOMPILING)
 
     export(TARGETS ${NATIVE_TARGETS} FILE ${CMAKE_BINARY_DIR}/ImportExecutables.cmake NAMESPACE native- )
     configure_file(sdk/cmake/host-tools.in ${CMAKE_BINARY_DIR}/TargetList.cmake)
-    
-    #Please, include these directories when integrate wrappers to reactos environment
-    add_subdirectory(wrappers)
-    add_subdirectory(wrappers/sdk/include/wsdk)
-    add_subdirectory(wrappers/sdk/lib)
 else()
     # Add host tools target
     include(sdk/cmake/host-tools.cmake)
