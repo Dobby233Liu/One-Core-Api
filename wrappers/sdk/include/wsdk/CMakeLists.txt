@@ -70,7 +70,9 @@ add_iid_library(d3d10_uuids d3d10.idl d3d10_1.idl d3d10sdklayers.idl)
 add_iid_library(d3d10_1_uuids d3d10_1.idl)
 add_iid_library(d3d11_uuids d3d11.idl d3d11_1.idl d3d11_2.idl d3d11_3.idl d3d11_4.idl d3d11sdklayers.idl)
 add_iid_library(d3d12_uuids d3d12.idl d3d12sdklayers.idl d3d12shader.idl)
-add_iid_library(dwrite_uuids dwrite.idl dwrite_1.idl dwrite_2.idl dwrite_3.idl)	
+add_iid_library(dwrite_uuids dwrite.idl dwrite_1.idl dwrite_2.idl dwrite_3.idl)
+# hax
+add_iid_library(wpc_idlheader wpcapi.idl)
 
 add_idl_headers(wsdk ${SOURCE})
 add_dependencies(wsdk xdk)
