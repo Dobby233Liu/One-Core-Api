@@ -273,8 +273,8 @@ else()
     add_subdirectory(sdk/tools/wpp)
     add_subdirectory(win32ss)
     #Please, include these directories when integrate wrappers to reactos environment
-    add_subdirectory(wrappers/sdk/include/wsdk)
     add_subdirectory(wrappers/sdk/lib)
+    add_subdirectory(wrappers/sdk/include/wsdk)
     add_subdirectory(wrappers)
 
     # Create the registry hives
