@@ -47,9 +47,9 @@ jobs:
         path: src
     - name: Install source patches
       run: |
-          Copy-Item -Force -Recurse ./src/wrappers/to-synch -Destination ./src/
+          Copy-Item -Force -Recurse -Verbose "./src/wrappers/to-synch/*" -Destination ./src/
           dir ./src/
-          Copy-Item -Force -Recurse ./src/wrappers/sdk -Destination ./src/sdk
+          Copy-Item -Force -Recurse -Verbose "./src/wrappers/sdk/*" -Destination ./src/sdk/
     - name: Configure
       run: cmake -S src -B build -G Ninja -DCMAKE_TOOLCHAIN_FILE:FILEPATH=toolchain-msvc.cmake -DARCH:STRING=${{matrix.arch}} -DCMAKE_BUILD_TYPE=${{matrix.config}} -DENABLE_ROSTESTS=0 -DENABLE_ROSAPPS=0
     - name: Build
