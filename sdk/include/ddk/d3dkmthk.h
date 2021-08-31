@@ -19,7 +19,7 @@
 #ifndef __WINE_D3DKMTHK_H
 #define __WINE_D3DKMTHK_H
 
-#include <d3dukmdt.h>
+#include "d3dukmdt.h"
 
 typedef enum _D3DKMT_VIDPNSOURCEOWNER_TYPE
 {
