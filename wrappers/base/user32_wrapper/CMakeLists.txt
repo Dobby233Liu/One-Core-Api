@@ -6,7 +6,7 @@ include_directories(${REACTOS_SOURCE_DIR}/sdk/include/host)
 include_directories(${REACTOS_SOURCE_DIR}/sdk/include/reactos/wine)
 include_directories(${REACTOS_SOURCE_DIR}/sdk/include/reactos/win32k)
 include_directories(${REACTOS_SOURCE_DIR}/sdk/include/reactos/subsys/csr)
-#include_directories(${REACTOS_SOURCE_DIR}/win32ss/user/winsrv)
+include_directories(${REACTOS_SOURCE_DIR}/win32ss/user/winsrv/usersrv)
 include_directories(${REACTOS_SOURCE_DIR}/win32ss/include)
 
 spec2def(user32_wrapper.dll user32_wrapper.spec)
