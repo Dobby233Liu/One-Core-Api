@@ -19,7 +19,7 @@
 #define COBJMACROS
 
 #include "initguid.h"
-#include "wpcapi.h"
+#include "wpc.h"
 #include "rpcproxy.h"
 
 #include "wine/debug.h"
