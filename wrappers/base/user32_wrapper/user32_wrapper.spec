@@ -1,4 +1,3 @@
-; Functions exported by Win 2K3 R2
 @ stdcall ActivateKeyboardLayout(long long) ;NtUserActivateKeyboardLayout
 @ stdcall AdjustWindowRect(ptr long long)
 @ stdcall AdjustWindowRectEx(ptr long long long)
@@ -874,7 +873,6 @@
 1551  stdcall -noname DwmSetRedirSurfacePresentFlags(ptr long)
 1552  stdcall -noname DwmGetRedirSurfacePresentFlags(ptr ptr) 
 
-#functions exported by user32 from Longhorn Pre-Reset
 @ stdcall HangrepRegisterPort(ptr)
 @ stdcall HangrepUnregisterPort(ptr)
 @ stdcall ThemeGetCurrentSection(ptr)
