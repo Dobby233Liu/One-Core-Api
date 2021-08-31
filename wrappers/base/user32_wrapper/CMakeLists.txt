@@ -23,8 +23,8 @@ list(APPEND SOURCE
 	dwm.c
 	icon.c
 	input.c
-	magnification
-    main.c
+	magnification.c
+        main.c
 	misc.c
 	paint.c
 	process.c
