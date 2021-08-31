@@ -16,7 +16,7 @@ list(APPEND SOURCE
     init.c
     winsrv.rc
     ${CMAKE_CURRENT_BINARY_DIR}/winsrv.def
-    winsrv_stubs.c
+    ${CMAKE_CURRENT_BINARY_DIR}/winsrv_stubs.c
 )
 
 add_library(winsrv MODULE ${SOURCE})
