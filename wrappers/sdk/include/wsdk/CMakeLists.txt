@@ -73,6 +73,7 @@ add_iid_library(d3d12_uuids d3d12.idl d3d12sdklayers.idl d3d12shader.idl)
 add_iid_library(dwrite_uuids dwrite.idl dwrite_1.idl dwrite_2.idl dwrite_3.idl)
 # hax
 add_iid_library(wpc_idlheader wpcapi.idl)
+add_iid_library(uiribbon_idlheader uiribbon.idl)
 
 add_idl_headers(wsdk ${SOURCE})
 add_dependencies(wsdk xdk)
