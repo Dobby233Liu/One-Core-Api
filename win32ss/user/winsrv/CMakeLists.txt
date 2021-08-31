@@ -15,7 +15,9 @@ include(usersrv.cmake)
 list(APPEND SOURCE
     init.c
     winsrv.rc
-    ${CMAKE_CURRENT_BINARY_DIR}/winsrv.def)
+    ${CMAKE_CURRENT_BINARY_DIR}/winsrv.def
+    winsrv_stubs.c
+)
 
 add_library(winsrv MODULE ${SOURCE})
 set_module_type(winsrv win32dll UNICODE ENTRYPOINT DllMain 12)
