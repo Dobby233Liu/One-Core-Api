@@ -9,7 +9,7 @@ include_directories(${REACTOS_SOURCE_DIR}/sdk/include/psdk)
 include_directories(${REACTOS_SOURCE_DIR}/wrappers/includes)
 
 spec2def(uiribbon.dll uiribbon.spec)
-add_idl_headers(uiribbon_idlheader uiribbon_classes.idl)
+add_idl_headers(uiribbon_classes uiribbon_classes.idl)
 
 list(APPEND SOURCE
 	main.c
@@ -19,8 +19,8 @@ list(APPEND SOURCE
     ${CMAKE_CURRENT_BINARY_DIR}/uiribbon.def)
 	
 add_library(uiribbon SHARED ${SOURCE})
-add_dependencies(uiribbon uiribbon_idlheader)
+add_dependencies(uiribbon uiribbon_classes)
 set_module_type(uiribbon win32dll)
-target_link_libraries(uiribbon wine uuid)
+target_link_libraries(uiribbon wine uuid uiribbon_idlheader)
 add_importlibs(uiribbon ole32 kernel32 ntdll msvcrt)
 add_cd_file(TARGET uiribbon DESTINATION reactos/system32 FOR all)
