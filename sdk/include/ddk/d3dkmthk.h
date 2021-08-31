@@ -19,7 +19,7 @@
 #ifndef __WINE_D3DKMTHK_H
 #define __WINE_D3DKMTHK_H
 
-#include "d3dukmdt.h"
+#include <d3dukmdt.h>
 
 typedef enum _D3DKMT_VIDPNSOURCEOWNER_TYPE
 {
@@ -121,6 +121,12 @@ typedef struct _D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME
     LUID AdapterLuid;
     D3DDDI_VIDEO_PRESENT_SOURCE_ID VidPnSourceId;
 } D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME;
+
+typedef struct _D3DKMT_OPENADAPTERFROMLUID
+{
+    LUID AdapterLuid;
+    D3DKMT_HANDLE hAdapter;
+} D3DKMT_OPENADAPTERFROMLUID;
 
 typedef struct _D3DKMT_SETVIDPNSOURCEOWNER
 {
