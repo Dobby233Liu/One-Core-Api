@@ -14,6 +14,7 @@ include(usersrv.cmake)
 
 list(APPEND SOURCE
     init.c
+    stubs.c
     winsrv.rc
     ${CMAKE_CURRENT_BINARY_DIR}/winsrv.def)
 
