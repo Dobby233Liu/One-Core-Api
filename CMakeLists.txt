@@ -16,6 +16,11 @@ if(POLICY CMP0065)
     cmake_policy(SET CMP0065 NEW)
 endif()
 
+if(POLICY CMP0121)
+    # Shut up
+    cmake_policy(SET CMP0121 OLD)
+endif()
+
 include(CMakeDependentOption)
 
 project(REACTOS)
