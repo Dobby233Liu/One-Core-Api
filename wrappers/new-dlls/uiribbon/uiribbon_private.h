@@ -19,7 +19,7 @@
 #ifndef __UIRIBBON_PRIVATE_INCLUDED__
 #define __UIRIBBON_PRIVATE_INCLUDED__
 
-#include "uiribbon.h"
+#include <uiribbon.h>
 
 typedef struct {
     IUIFramework IUIFramework_iface;
